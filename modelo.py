@@ -57,7 +57,7 @@ class Tablero:
 
         return self.tablero[fila][columna] is None
 
-    def estaLleno(self):
+    def esta_lleno(self):
         for linea in self.tablero:
             for ficha in linea:
                 if ficha == None:
@@ -65,9 +65,9 @@ class Tablero:
         return True
 
     def gana(self, jugador):
-        return self.ganaHorizontal(jugador) or self.ganaVertical(jugador) or self.ganaDiagonalDirecta(jugador) or self.ganaDiagonalInversa(jugador)
+        return self.gana_horizontal(jugador) or self.gana_vertical(jugador) or self.gana_diagonal_directa(jugador) or self.gana_diagonal_inversa(jugador)
 
-    def ganaHorizontal(self, jugador):
+    def gana_horizontal(self, jugador):
         gana = False
         for linea in self.tablero:
             gana = True
@@ -77,7 +77,7 @@ class Tablero:
                 break
         return gana
 
-    def ganaVertical(self, jugador):
+    def gana_vertical(self, jugador):
         gana = False
         for i in range(len(self.tablero)):
             gana = True
@@ -87,13 +87,13 @@ class Tablero:
                 break
         return gana
 
-    def ganaDiagonalDirecta(self, jugador):
+    def gana_diagonal_directa(self, jugador):
         gana = True
         for i in range(len(self.tablero)):
             gana &= self.tablero[i][i] == jugador
         return gana
 
-    def ganaDiagonalInversa(self, jugador):
+    def gana_diagonal_inversa(self, jugador):
         gana = True
         for i in range(len(self.tablero)):
             gana &= self.tablero[len(self.tablero) - 1 - i][i] == jugador
@@ -116,7 +116,7 @@ class Partida:
         return posible
 
     def terminada(self):
-        return self.tablero.estaLleno() or self.ganador() is not None
+        return self.tablero.esta_lleno() or self.ganador() is not None
 
     def ganador(self):
         for jugador in list(Ficha):

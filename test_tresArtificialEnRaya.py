@@ -49,7 +49,7 @@ def test_detecta_empate_sin_ganador():
         for columna, ficha in enumerate(fichas):
             tablero.jugar(ficha, fila, columna)
 
-    assert tablero.estaLleno()
+    assert tablero.esta_lleno()
     assert not tablero.gana(Ficha.X)
     assert not tablero.gana(Ficha.O)
 

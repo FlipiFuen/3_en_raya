@@ -20,7 +20,7 @@ class InteligenciaArtificial:
         Returns:
             tuple: La posición (fila, columna) del mejor movimiento, o None si no hay movimientos posibles.
         """
-        if self._ganador(tablero) is not None or tablero.estaLleno():
+        if self._ganador(tablero) is not None or tablero.esta_lleno():
             return None
 
         mejor_valor = float("-inf")
@@ -59,7 +59,7 @@ class InteligenciaArtificial:
             return 10 - profundidad # Retorna un valor positivo si la IA gana, ajustado por la profundidad para priorizar victorias rápidas.
         if ganador == self.rival:
             return profundidad - 10 # Retorna un valor negativo si el rival gana, ajustado por la profundidad para priorizar derrotas tardías.
-        if tablero.estaLleno():
+        if tablero.esta_lleno():
             return 0
 
         # Inicializa el mejor valor dependiendo de si se está maximizando o minimizando.
